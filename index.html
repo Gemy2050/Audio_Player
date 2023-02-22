@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Player</title>
+  <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="image"></div>
+    <audio src="audios/1-حسن صالح.mp3"></audio>
+    <div class="progress-container">
+      <div class="progress"></div>
+    </div>
+    <div class="time">
+      <span class="start">00:00</span>
+      <span class="end">00:00</span>
+    </div>
+    <div class="title">Test</div>
+    <div class="controls">
+  <!-- <i class=" fa-regular fa-circle-pause fa-2x"></i> -->
+  <i class="fas fa-angle-left change-background fa-2x prev"></i>
+  <i class="fa-regular fa-circle-play fa-2x play"></i>
+  <i class="fas fa-angle-right change-background fa-2x next"></i>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body> 
+</html>
