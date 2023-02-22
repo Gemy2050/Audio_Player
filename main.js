@@ -40,7 +40,7 @@ const music_list = [
       music : 'audios/4.mp3'
   },
   {
-      img : 'images/1.jpg',
+      img : 'images/01.jpg',
       name :  "حسن صالح: الاخلاص  ",
       artist : '',
       music : 'audios/5.mp3'
@@ -77,13 +77,13 @@ function load(obj) {
     getAudioDuration()
   }
   updateTimer = setInterval(getAudioDuration, 300);
-  
+  routes()
 }
 load(music_list[index]);
 
 
 function handleTime() {
-  setInterval(function(){
+  let id = setInterval(function(){
     minutes = 0
     seconds = Math.floor(audio.currentTime)
     if (Math.floor(audio.currentTime) >= 60) {
@@ -91,7 +91,11 @@ function handleTime() {
         seconds = Math.floor(audio.currentTime - 60);
       }
       startTime.innerText = `${minutes < 10 ? "0"+minutes : minutes}:${seconds < 10 ? "0"+seconds : seconds}`;
-      handleProgress(audio.currentTime)
+      handleProgress(audio.currentTime);
+    if(audio.ended) {
+      next()
+      clearInterval(id);
+    }
     },500)
 }
 handleTime()
