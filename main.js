@@ -84,13 +84,14 @@ load(music_list[index]);
 
 function handleTime() {
   let id = setInterval(function(){
-    minutes = 0
-    seconds = Math.floor(audio.currentTime)
-    if (Math.floor(audio.currentTime) >= 60) {
-        minutes++;
-        seconds = Math.floor(audio.currentTime - 60);
+    let m = Math.floor(audio.currentTime / 60);
+    let s = Math.floor(audio.currentTime % 60);
+    if (s >= 60) {
+      console.log("Yes");
+        m++;
+        s = Math.floor(audio.currentTime - (60 * +m+1));
       }
-      startTime.innerText = `${minutes < 10 ? "0"+minutes : minutes}:${seconds < 10 ? "0"+seconds : seconds}`;
+      startTime.innerText = `${m < 10 ? "0"+m : m}:${s < 10 ? "0"+s : s}`;
       handleProgress(audio.currentTime);
     if(audio.ended) {
       next()
